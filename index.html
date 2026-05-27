@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter World ❄️ | Discord VPI Project</title>
+    <style>
+        /* Обнуление базовых стилей */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000000; /* Абсолютно черный глубокий фон */
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 1. НАВИГАЦИЯ (ШАПКА) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 8%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+            background-color: #050505;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            color: #38bdf8;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #a3a3a3;
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+            text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+        }
+
+        .btn-nav {
+            margin-left: 2.5rem;
+            background-color: #38bdf8;
+            color: #000000;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-nav:hover {
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            transform: translateY(-1px);
+        }
+
+        /* 2. ГЛАВНЫЙ ЭКРАН (HERO) */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), #000000), url('Frame_11212770.jpg') center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+            text-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #d4d4d4;
+            max-width: 750px;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        .btn-discord {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #38bdf8;
+            padding: 0.9rem 2.6rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-discord:hover {
+            background-color: #38bdf8;
+            color: #000000;
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+        }
+
+        /* 3. НОВЫЙ БЛОК: СТАТИСТИКА СЕРВЕРА */
+        .stats-section {
+            padding: 4rem 8%;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            background: linear-gradient(to bottom, #000000, #050505);
+            position: relative;
+        }
+
+        .stat-card {
+            background: #030303;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            min-width: 260px;
+            flex: 1;
+            max-width: 320px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Легкое голубое свечение снизу карточек при наведении */
+        .stat-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.05);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .stat-card:nth-child(1) .stat-number {
+            color: #38bdf8; /* Голубой акцент для игроков */
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .stat-card:nth-child(2) .stat-number {
+            color: #ff73fa; /* Розовый акцент в стиле бустов Discord */
+            text-shadow: 0 0 20px rgba(255, 115, 250, 0.3);
+        }
+
+        .stat-card:nth-child(3) .stat-number {
+            background: linear-gradient(45deg, #ffffff, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-sub {
+            font-size: 0.85rem;
+            color: #737373;
+        }
+
+        /* 4. БЛОК КАРТЫ МИРА */
+        .map-section {
+            padding: 6rem 8%;
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.04) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+
+        .section-desc {
+            color: #a3a3a3;
+            max-width: 620px;
+            margin-bottom: 3.5rem;
+            font-size: 1.1rem;
+        }
+
+        .map-wrapper {
+            width: 100%;
+            max-width: 1050px;
+            background-color: #030303;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 0 60px rgba(56, 189, 248, 0.02);
+        }
+
+        .map-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .map-tab {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #a3a3a3;
+            padding: 0.6rem 1.8rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-tab.active {
+            border-color: #38bdf8;
+            color: #38bdf8;
+            background-color: rgba(56, 189, 248, 0.08);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+
+        .map-tab:hover:not(.active) {
+            border-color: rgba(56, 189, 248, 0.5);
+            color: #ffffff;
+        }
+
+        .map-display {
+            width: 100%;
+            height: 550px;
+            background-color: #070707;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .map-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .map-img.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .map-placeholder {
+            position: absolute;
+            color: #4a5568;
+            font-size: 1.1rem;
+            text-align: center;
+            line-height: 1.8;
+            padding: 2rem;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="Frame_11212765.jpg" alt="Winter World Logo" class="logo-img">
+            <div class="logo-text">Winter <span>World</span></div>
+        </div>
+        <div class="nav-container">
+            <nav>
+                <a href="#home">Главная</a>
+                <a href="#stats">О проекте</a>
+                <a href="#map">Карта Мира</a>
+                <a href="#mechanics">Механики</a>
+            </nav>
+            <a href="https://discord.gg/winterworld" target="_blank" class="btn-nav">Вступить</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Добро пожаловать в <span>Winter World</span></h1>
+            <p>Суровый мир вечной мерзлоты, геополитических интриг и неустанной борьбы за выживание. Возглавь свое государство, прими вызов ледяной стихии и впиши свое имя в историю этого замерзающего мира.</p>
+            <a href="https://discord.gg/winterworld" target="_blank" class="btn-discord">❄️ Начать играть</a>
+        </div>
+    </section>
+
+    <section class="stats-section" id="stats">
+        <div class="stat-card">
+            <div class="stat-number">225+</div>
+            <div class="stat-label">Активных Игроков</div>
+            <div class="stat-sub">Формируют историю государств прямо сейчас</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">22 </div>
+            <div class="stat-label">Буста Сервера</div>
+            <div class="stat-sub">Максимальное качество звука и кастомные эмодзи</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">WW Bot</div>
+            <div class="stat-label">Собственный Бот</div>
+            <div class="stat-sub">Уникальная автоматизация ходов, экономики и ВПИ-механик</div>
+        </div>
+    </section>
+
+    <section class="map-section" id="map">
+        <h2 class="section-title">География <span>Winter World</span></h2>
+        <p class="section-desc">Исследуй политические границы держав, залежи крио-ресурсов и зоны влияния альянсов. Карта обновляется в реальном времени после каждого игрового хода.</p>
+        
+        <div class="map-wrapper">
+            <div class="map-tabs">
+                <button class="map-tab active" onclick="switchMap(0)">Политическая карта</button>
+                <button class="map-tab" onclick="switchMap(1)">Ресурсы & Крио-зоны</button>
+                <button class="map-tab" onclick="switchMap(2)">Фракции и Альянсы</button>
+            </div>
+
+            <div class="map-display">
+                <img src="map_political.jpg" alt="Политическая карта" class="map-img active" id="map-0">
+                <img src="map_resources.jpg" alt="Карта ресурсов" class="map-img" id="map-1">
+                <img src="map_fractions.jpg" alt="Карта фракций" class="map-img" id="map-2">
+
+                <div class="map-placeholder" id="placeholder-text">
+                    🗺️ <span style="color: #38bdf8;">Интерактивный радар готов.</span><br>
+                    Чтобы загрузить свои карты, просто сохрани скриншоты в папку сайта под именами:<br>
+                    <i>map_political.jpg</i>, <i>map_resources.jpg</i> или <i>map_fractions.jpg</i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function switchMap(index) {
+            const tabs = document.querySelectorAll('.map-tab');
+            const images = document.querySelectorAll('.map-img');
+            const placeholder = document.getElementById('placeholder-text');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            images.forEach(img => img.classList.remove('active'));
+
+            tabs[index].classList.add('active');
+            images[index].classList.add('active');
+
+            if (images[index].complete && images[index].naturalWidth !== 0) {
+                placeholder.style.display = 'none';
+            } else {
+                placeholder.style.display = 'block';
+            }
+        }
+
+        window.addEventListener('load', () => {
+            const firstImg = document.getElementById('map-0');
+            if (firstImg.complete && firstImg.naturalWidth !== 0) {
+                document.getElementById('placeholder-text').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
