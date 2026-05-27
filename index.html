@@ -117,7 +117,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 2rem 1.5rem;
             position: relative;
             background: linear-gradient(rgba(0, 0, 0, 0.65), #000000), url('Frame_11212770.jpg') center/cover no-repeat;
         }
@@ -125,7 +125,8 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 500px;
+            width: 100%;
+            max-width: 500px;
             height: 500px;
             background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
             z-index: 1;
@@ -136,7 +137,7 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .hero h1 {
@@ -155,6 +156,9 @@
         .hero p {
             font-size: 1.25rem;
             color: #d4d4d4;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
             margin-bottom: 2.5rem;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
         }
@@ -279,7 +283,7 @@
             text-align: center;
         }
 
-        .lore-container {
+        .lore-container, .seasons-container {
             width: 100%;
             max-width: 850px;
             background-color: #030303;
@@ -300,101 +304,6 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-        }
-
-        .seasons-section .section-title {
-            margin-bottom: 3.5rem;
-        }
-
-        .seasons-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1100px;
-        }
-
-        .season-card {
-            background-color: #050505;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 14px;
-            padding: 2.5rem 2rem;
-            text-align: left;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .season-card:hover {
-            border-color: rgba(56, 189, 248, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .season-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: #38bdf8;
-        }
-
-        .season-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-        }
-
-        .season-title-text {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #ffffff;
-        }
-
-        .season-date {
-            font-size: 0.85rem;
-            color: #737373;
-            font-weight: 600;
-        }
-
-        .season-winner {
-            font-size: 0.9rem;
-            color: #ff73fa;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .season-summary {
-            color: #a3a3a3;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .season-highlights {
-            list-style: none;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 1rem;
-        }
-
-        .season-highlights li {
-            font-size: 0.9rem;
-            color: #d4d4d4;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .season-highlights li::before {
-            content: "❄️";
-            font-size: 0.75rem;
         }
 
         /* 6. БЛОК КАРТЫ МИРА */
@@ -515,4 +424,765 @@
 
         .mech-card:hover {
             border-color: rgba(56, 189, 248, 0.25);
-            box-shadow: inset 0 0 20px rgba(56, 189, 248, 0.02), 0 10px 30px rgba(0,0,0,0.5
+            box-shadow: inset 0 0 20px rgba(56, 189, 248, 0.02), 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(-3px);
+        }
+
+        .mech-icon {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .mech-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .mech-card p {
+            color: #a3a3a3;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 8. БЛОК: КАК НАЧАТЬ ИГРАТЬ */
+        .start-section {
+            padding: 6rem 8%;
+            background: radial-gradient(circle at bottom, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            width: 100%;
+            max-width: 1050px;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .step-item {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+            background-color: #040404;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+        }
+
+        .step-badge {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #111;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .step-item h3 {
+            font-size: 1.25rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .step-item p {
+            color: #a3a3a3;
+            font-size: 0.95rem;
+        }
+
+        /* 9. БЛОК: ДОНАТ */
+        .donate-section {
+            padding: 6rem 8%;
+            background-color: #030303;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .donate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 5rem;
+        }
+
+        .donate-card {
+            background-color: #060606;
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .donate-card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.03);
+            transform: translateY(-5px);
+        }
+
+        .donate-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .donate-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        .donate-subheading {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #38bdf8;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .donate-features {
+            list-style: none;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .donate-features li {
+            color: #d4d4d4;
+            font-size: 0.95rem;
+            margin-bottom: 0.7rem;
+            line-height: 1.4;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .donate-features li::before {
+            content: "•";
+            color: #38bdf8;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .price-list {
+            background-color: #020202;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.02);
+            margin-top: auto;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            color: #a3a3a3;
+        }
+
+        .price-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-row .cost {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .donate-btn {
+            width: 100%;
+            background-color: transparent;
+            border: 2px solid #38bdf8;
+            color: #38bdf8;
+            padding: 0.7rem 0;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .donate-btn:hover {
+            background-color: #38bdf8;
+            color: #000000;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .bron-wrapper {
+            width: 100%;
+            max-width: 600px;
+            background-color: #050505;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .bron-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 0.5rem;
+        }
+
+        .bron-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            color: #d4d4d4;
+        }
+
+        .bron-row:last-child {
+            border-bottom: none;
+        }
+
+        .bron-price {
+            font-weight: 700;
+            color: #38bdf8;
+        }
+
+        /* 10. ФУТЕР */
+        footer {
+            padding: 3rem 8% 2.5rem 8%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background-color: #020202;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            color: #525252;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-credits {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
+            padding-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .credits-column {
+            flex: 1;
+            min-width: 250px;
+            font-size: 0.8rem;
+            color: #404040;
+            line-height: 1.5;
+        }
+
+        .credits-column.ru {
+            text-align: left;
+        }
+
+        .credits-column.en {
+            text-align: right;
+        }
+
+
+        /* ==========================================================================
+           МЕДИА-ЗАПРОСЫ ДЛЯ АДАПТИВНОСТИ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА
+           ========================================================================== */
+
+        /* 1. Планшеты и большие телефоны (до 1024px) */
+        @media (max-width: 1024px) {
+            header {
+                padding: 1rem 4%; /* Уменьшаем боковые отступы в шапке */
+            }
+            .hero h1 {
+                font-size: 3rem; /* Чуть уменьшаем главный заголовок */
+            }
+            .stats-section, .lore-section, .seasons-section, .map-section, .mechanics-section, .start-section, .donate-section {
+                padding: 4rem 4%; /* Оптимизируем отступы секций */
+            }
+        }
+
+        /* 2. Мобильные устройства (до 768px) - Основная адаптация */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 12px;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 15px;
+            }
+
+            nav a {
+                margin-left: 0;
+                font-size: 0.9rem;
+            }
+
+            .btn-nav {
+                margin-left: 0;
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+
+            /* Главный баннер */
+            .hero {
+                min-height: auto;
+                padding: 5rem 1rem 4rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .btn-discord {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            /* Заголовки блоков */
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-desc {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+
+            /* Блок статистики */
+            .stats-section {
+                gap: 15px;
+                padding: 3rem 1rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+                min-width: 100%; /* Карточки встают на всю ширину экрана смартфона */
+            }
+
+            .stat-number {
+                font-size: 2.8rem;
+            }
+
+            /* Лор и Сезоны */
+            .lore-container, .seasons-container {
+                padding: 2rem 1.2rem;
+            }
+
+            /* Интерактивная карта */
+            .map-wrapper {
+                padding: 1rem;
+            }
+
+            .map-tabs {
+                gap: 8px;
+            }
+
+            .map-tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+                flex: 1;
+                min-width: 140px;
+                text-align: center;
+            }
+
+            .map-display {
+                height: 300px; /* Уменьшаем высоту окна карты на смартфонах */
+            }
+
+            .map-placeholder {
+                font-size: 0.85rem;
+                padding: 1rem;
+            }
+
+            /* Механики и Шаги */
+            .mech-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .mech-card {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .steps-container {
+                gap: 30px;
+            }
+
+            .step-item {
+                min-width: 100%;
+                padding: 2rem 1.2rem 1.5rem 1.2rem;
+            }
+
+            /* Донат и Брони */
+            .donate-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .donate-card {
+                padding: 2rem 1.2rem;
+            }
+
+            .bron-wrapper {
+                padding: 1.5rem 1rem;
+            }
+
+            .bron-title {
+                font-size: 1.1rem;
+            }
+
+            .bron-row {
+                font-size: 0.9rem;
+            }
+
+            /* Футер */
+            .footer-credits {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .credits-column.ru, .credits-column.en {
+                text-align: center;
+            }
+        }
+
+        /* 3. Оптимизация для самых маленьких экранов (до 360px) */
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            .map-display {
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="Frame_11212765.jpg" alt="Winter World Logo" class="logo-img">
+            <div class="logo-text">Winter <span>World</span></div>
+        </div>
+        <div class="nav-container">
+            <nav>
+                <a href="#home">Главная</a>
+                <a href="#lore">Лор</a>
+                <a href="#seasons">Итоги сезонов</a>
+                <a href="#map">Карта</a>
+                <a href="#mechanics">Механики</a>
+                <a href="#start">Как начать</a>
+                <a href="#donate">Донат</a>
+            </nav>
+            <a href="https://discord.gg/winterworld" target="_blank" class="btn-nav">Вступить</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Добро пожаловать в <span>Winter World</span></h1>
+            <p>Суровый мир вечной мерзлоты, геополитических интриг и неустанной борьбы за выживание. Возглавь свое государство, прими вызов ледяной стихии и впиши свое имя в историю этого замерзающего мира.</p>
+            <a href="https://discord.gg/winterworld" target="_blank" class="btn-discord">❄️ Начать играть</a>
+        </div>
+    </section>
+
+    <section class="stats-section" id="stats">
+        <div class="stat-card">
+            <div class="stat-number">226+</div>
+            <div class="stat-label">Активных Игроков</div>
+            <div class="stat-sub">Формируют историю государств прямо сейчас</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">22</div>
+            <div class="stat-label">Буста Сервера</div>
+            <div class="stat-sub">Максимальное качество звука и кастомные эмодзи</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">WW Bot</div>
+            <div class="stat-label">Собственный Бот</div>
+            <div class="stat-sub">Уникальная автоматизация ходов, экономики и ВПИ-механик</div>
+        </div>
+    </section>
+
+    <section class="lore-section" id="lore">
+        <h2 class="section-title">История <span>Мира</span></h2>
+        <p class="section-desc">Раздел находится в разработке. Совсем скоро здесь появится летопись вселенной Winter World.</p>
+
+        <div class="lore-container">
+            Раздел временно пуст. Истории государств пишутся прямо сейчас...
+        </div>
+    </section>
+
+    <section class="seasons-section" id="seasons">
+        <h2 class="section-title">Итоги <span>Сезонов</span></h2>
+        <p class="section-desc">Здесь будут публиковаться результаты прошедших глобальных сезонов и имена великих правителей-победителей.</p>
+
+        <div class="seasons-container">
+            На сервере идет текущий сезон. Итоги будут подведены позже...
+        </div>
+    </section>
+
+    <section class="map-section" id="map">
+        <h2 class="section-title">География <span>Winter World</span></h2>
+        <p class="section-desc">Исследуй политические границы держав, залежи крио-ресурсов и зоны влияния альянсов. Карта обновляется в реальном времени после каждого игрового хода.</p>
+        
+        <div class="map-wrapper">
+            <div class="map-tabs">
+                <button class="map-tab active" onclick="switchMap(0)">Политическая карта</button>
+                <button class="map-tab" onclick="switchMap(1)">Ресурсы & Крио-зоны</button>
+                <button class="map-tab" onclick="switchMap(2)">Фракции и Альянсы</button>
+            </div>
+
+            <div class="map-display">
+                <img src="map_political.jpg" alt="Политическая карта" class="map-img active" id="map-0">
+                <img src="map_resources.jpg" alt="Карта ресурсов" class="map-img" id="map-1">
+                <img src="map_fractions.jpg" alt="Карта фракций" class="map-img" id="map-2">
+
+                <div class="map-placeholder" id="placeholder-text">
+                    🗺️ <span style="color: #38bdf8;">Интерактивный радар готов.</span><br>
+                    Чтобы загрузить свои карты, просто сохрани скриншоты в папку сайта под именами:<br>
+                    <i>map_political.jpg</i>, <i>map_resources.jpg</i> или <i>map_fractions.jpg</i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mechanics-section" id="mechanics">
+        <h2 class="section-title">Игровые <span>Механики</span></h2>
+        <p class="section-desc">Наш проект предлагает глубокий игровой процесс, где каждое решение правителя влияет на стабильность его нации.</p>
+
+        <div class="mech-grid">
+            <div class="mech-card">
+                <div class="mech-icon">👑</div>
+                <h3>Управление Государством</h3>
+                <p>Создай уникальную идеологию, настраивай законы, развивай внутренние институты и веди тонкую дипломатическую игру с соседями по обледенелому континенту.</p>
+            </div>
+
+            <div class="mech-card">
+                <div class="mech-icon">🤖</div>
+                <h3>Интеграция с WW Bot</h3>
+                <p>Никакой рутины. Наш кастомный бот берет на себя автоматический расчет налогов, добычи ресурсов, содержания армии и мгновенно обрабатывает приказы на ход.</p>
+            </div>
+
+            <div class="mech-card">
+                <div class="mech-icon">❄️</div>
+                <h3>Крио-Выживание</h3>
+                <p>Холод — твой главный враг. Борись с падением температуры, развивай тепловые станции, исследуйте технологии обогрева и береги население от вечной мерзлоты.</p>
+            </div>
+
+            <div class="mech-card">
+                <div class="mech-icon">⚔️</div>
+                <h3>Tactical Wars</h3>
+                <p>Продуманная боевая система. Формируй дивизии, учитывай суровый зимний ландшафт, снабжай армию топливом и прорывай оборонительные линии противника.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="start-section" id="start">
+        <h2 class="section-title">Быстрый <span>Старт</span></h2>
+        <p class="section-desc">Всего три простых шага отделяют тебя от основания величайшей ледяной империи.</p>
+
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-badge">1</div>
+                <h3>Вступай в Discord</h3>
+                <p>Присоединяйся к нашему серверу, выбери интересующие роли и погрузись в изучение игрового лора.</p>
+            </div>
+
+            <div class="step-item">
+                <div class="step-badge">2</div>
+                <h3>Создай Страну</h3>
+                <p>Заполни простую и удобную анкету твоего будущего государства: выбери флаг, название, форму правления и менталитет.</p>
+            </div>
+
+            <div class="step-item">
+                <div class="step-badge">3</div>
+                <h3>Делай Ход</h3>
+                <p>Получи стартовые территории на карте мира, доступ к командам WW Bot и начни свою первую экспансию!</p>
+            </div>
+        </div>
+
+        <a href="https://discord.gg/winterworld" target="_blank" class="btn-discord">❄️ Основать Империю</a>
+    </section>
+
+    <section class="donate-section" id="donate">
+        <h2 class="section-title">Поддержка <span>Проекта</span></h2>
+        <p class="section-desc">Добровольные пожертвования помогают нам оплачивать хостинг для бота и развивать проект. Выберите подходящий статус привилегий.</p>
+
+        <div class="donate-grid">
+            <div class="donate-card">
+                <div class="donate-icon">👑</div>
+                <div class="donate-name">VIP-status</div>
+                <div class="donate-subheading">Преимущества:</div>
+                <ul class="donate-features">
+                    <li>Каждую неделю пока действует вип статус +4 миллиарды валюты</li>
+                    <li>Получение особой роли в Discord</li>
+                    <li>Снижение судейских наказаний (на 5%)</li>
+                </ul>
+                <div class="price-list">
+                    <div class="price-row"><span>1 неделя</span><span class="cost">200 ₽</span></div>
+                    <div class="price-row"><span>1 месяц</span><span class="cost">400 ₽</span></div>
+                    <div class="price-row"><span>3 месяца</span><span class="cost">850 ₽</span></div>
+                </div>
+                <a href="https://discord.gg/winterworld" target="_blank" class="donate-btn">Приобрести</a>
+            </div>
+
+            <div class="donate-card">
+                <div class="donate-icon">💳</div>
+                <div class="donate-name">Elite-status</div>
+                <div class="donate-subheading">Преимущества:</div>
+                <ul class="donate-features">
+                    <li>Каждую неделю стабильно по +400 млн валюты</li>
+                    <li>Получение особой премиальной роли</li>
+                    <li>Снижение судейских наказаний (-10%)</li>
+                    <li>Бронь страны на вайп (1 раз вне зависимости от срока)</li>
+                </ul>
+                <div class="price-list">
+                    <div class="price-row"><span>1 неделя</span><span class="cost">400 ₽</span></div>
+                    <div class="price-row"><span>1 month</span><span class="cost">700 ₽</span></div>
+                    <div class="price-row"><span>3 месяца</span><span class="cost">2000 ₽</span></div>
+                </div>
+                <a href="https://discord.gg/winterworld" target="_blank" class="donate-btn">Приобрести</a>
+            </div>
+
+            <div class="donate-card">
+                <div class="donate-icon">🍷</div>
+                <div class="donate-name">Platinum-status</div>
+                <div class="donate-subheading">Преимущества:</div>
+                <ul class="donate-features">
+                    <li>Получение уникальной роли Platinum</li>
+                    <li>Снижение судейских наказаний (-20%)</li>
+                    <li>Каждую неделю стабильно по +800 млн валюты</li>
+                    <li>Бронь твоей страны сразу на 2 вайпа вперед</li>
+                </ul>
+                <div class="price-list">
+                    <div class="price-row"><span>1 неделя</span><span class="cost">500 ₽</span></div>
+                    <div class="price-row"><span>1 месяц</span><span class="cost">950 ₽</span></div>
+                    <div class="price-row"><span>3 месяца</span><span class="cost">2000 ₽</span></div>
+                </div>
+                <a href="https://discord.gg/winterworld" target="_blank" class="donate-btn">Приобрести</a>
+            </div>
+        </div>
+
+        <div class="bron-wrapper">
+            <div class="bron-title">🛡️ | Бронирование на сервере</div>
+            <div class="bron-row">
+                <span>Сверхдержава</span>
+                <span class="bron-price">300 ₽</span>
+            </div>
+            <div class="bron-row">
+                <span>Держава</span>
+                <span class="bron-price">200 ₽</span>
+            </div>
+            <div class="bron-row">
+                <span>Страна</span>
+                <span class="bron-price">100 ₽</span>
+            </div>
+            <div class="bron-row">
+                <span>Организации и регионы</span>
+                <span class="bron-price">50 ₽</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Winter World VPI. Все права защищены. Проект базируется на платформе Discord.</p>
+        </div>
+        <div class="footer-credits">
+            <div class="credits-column ru">
+                Создатель бота: <b>MZshnik</b><br>
+                Создатель сайта: <b>MrSilver / MrSllver</b><br>
+                Владелец проекта: <b>MrSilver / MrSllver</b>
+            </div>
+            <div class="credits-column en">
+                Bot Developer: <b>MZshnik</b><br>
+                Website Developer: <b>MrSilver / MrSllver</b><br>
+                Project Owner: <b>MrSilver / MrSllver</b>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function switchMap(index) {
+            const tabs = document.querySelectorAll('.map-tab');
+            const images = document.querySelectorAll('.map-img');
+            const placeholder = document.getElementById('placeholder-text');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            images.forEach(img => img.classList.remove('active'));
+
+            tabs[index].classList.add('active');
+            images[index].classList.add('active');
+
+            if (images[index].complete && images[index].naturalWidth !== 0) {
+                placeholder.style.display = 'none';
+            } else {
+                placeholder.style.display = 'block';
+            }
+        }
+
+        window.addEventListener('load', () => {
+            const firstImg = document.getElementById('map-0');
+            if (firstImg.complete && firstImg.naturalWidth !== 0) {
+                document.getElementById('placeholder-text').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
