@@ -69,6 +69,11 @@
             align-items: center;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
             color: #a3a3a3;
             text-decoration: none;
@@ -76,6 +81,7 @@
             font-weight: 500;
             transition: all 0.3s ease;
             font-size: 0.95rem;
+            white-space: nowrap;
         }
 
         nav a:hover {
@@ -94,6 +100,7 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
+            white-space: nowrap;
         }
 
         .btn-nav:hover {
@@ -110,7 +117,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 2rem;
+            padding: 4rem 2rem;
             position: relative;
             background: linear-gradient(rgba(0, 0, 0, 0.65), #000000), url('Frame_11212770.jpg') center/cover no-repeat;
         }
@@ -128,6 +135,8 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            width: 100%;
+            max-width: 800px;
         }
 
         .hero h1 {
@@ -146,7 +155,6 @@
         .hero p {
             font-size: 1.25rem;
             color: #d4d4d4;
-            max-width: 750px;
             margin-bottom: 2.5rem;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
         }
@@ -300,29 +308,21 @@
 
         .seasons-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             width: 100%;
             max-width: 1100px;
-        }
-
-        @media (max-width: 550px) {
-            .seasons-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .season-card {
             background-color: #050505;
             border: 1px solid rgba(255, 255, 255, 0.03);
             border-radius: 14px;
-            padding: 2.2rem 2rem;
+            padding: 2.5rem 2rem;
             text-align: left;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
 
         .season-card:hover {
@@ -370,42 +370,6 @@
             gap: 6px;
         }
 
-        /* Переключатели внутри карточки сезона */
-        .season-tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 1.2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 0.6rem;
-        }
-
-        .season-tab-btn {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.08);
-            color: #a3a3a3;
-            padding: 0.4rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
-
-        .season-tab-btn.active {
-            border-color: #38bdf8;
-            color: #38bdf8;
-            background-color: rgba(56, 189, 248, 0.05);
-        }
-
-        /* Контент вкладок сезонов */
-        .season-content-block {
-            display: none;
-        }
-
-        .season-content-block.active {
-            display: block;
-        }
-
         .season-summary {
             color: #a3a3a3;
             font-size: 0.95rem;
@@ -431,37 +395,6 @@
         .season-highlights li::before {
             content: "❄️";
             font-size: 0.75rem;
-        }
-
-        /* Отображение карты сезона */
-        .season-map-container {
-            width: 100%;
-            height: 220px;
-            background-color: #090909;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.03);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .season-map-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        .season-map-placeholder {
-            position: absolute;
-            color: #4a5568;
-            font-size: 0.85rem;
-            text-align: center;
-            padding: 1rem;
-            pointer-events: none;
-            line-height: 1.5;
         }
 
         /* 6. БЛОК КАРТЫ МИРА */
@@ -582,352 +515,4 @@
 
         .mech-card:hover {
             border-color: rgba(56, 189, 248, 0.25);
-            box-shadow: inset 0 0 20px rgba(56, 189, 248, 0.02), 0 10px 30px rgba(0,0,0,0.5);
-            transform: translateY(-3px);
-        }
-
-        .mech-icon {
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
-            display: inline-block;
-        }
-
-        .mech-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
-            color: #ffffff;
-        }
-
-        .mech-card p {
-            color: #a3a3a3;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* 8. БЛОК: КАК НАЧАТЬ ИГРАТЬ */
-        .start-section {
-            padding: 6rem 8%;
-            background: radial-gradient(circle at bottom, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .steps-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            width: 100%;
-            max-width: 1050px;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .step-item {
-            flex: 1;
-            min-width: 250px;
-            position: relative;
-            background-color: #040404;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-        }
-
-        .step-badge {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #111;
-            border: 2px solid #38bdf8;
-            color: #38bdf8;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: 800;
-            font-size: 1.1rem;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-        }
-
-        .step-item h3 {
-            font-size: 1.25rem;
-            margin-top: 0.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .step-item p {
-            color: #a3a3a3;
-            font-size: 0.95rem;
-        }
-
-        /* 9. БЛОК: ДОНАТ */
-        .donate-section {
-            padding: 6rem 8%;
-            background-color: #030303;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .donate-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1100px;
-            margin-bottom: 5rem;
-        }
-
-        .donate-card {
-            background-color: #060606;
-            border: 1px solid rgba(255,255,255,0.03);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .donate-card:hover {
-            border-color: rgba(56, 189, 248, 0.3);
-            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.03);
-            transform: translateY(-5px);
-        }
-
-        .donate-icon {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .donate-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 0.5rem;
-        }
-
-        .donate-subheading {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #38bdf8;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-        }
-
-        .donate-features {
-            list-style: none;
-            width: 100%;
-            margin-bottom: 2rem;
-        }
-
-        .donate-features li {
-            color: #d4d4d4;
-            font-size: 0.95rem;
-            margin-bottom: 0.7rem;
-            line-height: 1.4;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .donate-features li::before {
-            content: "•";
-            color: #38bdf8;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .price-list {
-            background-color: #020202;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.02);
-            margin-top: auto;
-        }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.95rem;
-            margin-bottom: 0.4rem;
-            color: #a3a3a3;
-        }
-
-        .price-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .price-row .cost {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .donate-btn {
-            width: 100%;
-            background-color: transparent;
-            border: 2px solid #38bdf8;
-            color: #38bdf8;
-            padding: 0.7rem 0;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .donate-btn:hover {
-            background-color: #38bdf8;
-            color: #000000;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-        }
-
-        .bron-wrapper {
-            width: 100%;
-            max-width: 600px;
-            background-color: #050505;
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: left;
-        }
-
-        .bron-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #ffffff;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding-bottom: 0.5rem;
-        }
-
-        .bron-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            color: #d4d4d4;
-        }
-
-        .bron-row:last-child {
-            border-bottom: none;
-        }
-
-        .bron-price {
-            font-weight: 700;
-            color: #38bdf8;
-        }
-
-        /* 10. ФУТЕР */
-        footer {
-            padding: 3rem 8% 2.5rem 8%;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            background-color: #020202;
-        }
-
-        .footer-copyright {
-            text-align: center;
-            color: #525252;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-credits {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.02);
-            padding-top: 1.2rem;
-            flex-wrap: wrap;
-        }
-
-        .credits-column {
-            flex: 1;
-            min-width: 250px;
-            font-size: 0.8rem;
-            color: #404040;
-            line-height: 1.5;
-        }
-
-        .credits-column.ru {
-            text-align: left;
-        }
-
-        .credits-column.en {
-            text-align: right;
-        }
-
-        /* Адаптивность для мобильных */
-        @media (max-width: 768px) {
-            .footer-credits {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            .credits-column.ru, .credits-column.en {
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="logo-container">
-            <img src="Frame_11212765.jpg" alt="Winter World Logo" class="logo-img">
-            <div class="logo-text">Winter <span>World</span></div>
-        </div>
-        <div class="nav-container">
-            <nav>
-                <a href="#home">Главная</a>
-                <a href="#lore">Лор</a>
-                <a href="#seasons">Итоги сезонов</a>
-                <a href="#map">Карта</a>
-                <a href="#mechanics">Механики</a>
-                <a href="#start">Первые шаги</a>
-                <a href="#donate">Донат</a>
-            </nav>
-            <a href="https://discord.gg/winterworld" target="_blank" class="btn-nav">Вступить</a>
-        </div>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Добро пожаловать в <span>Winter World</span></h1>
-            <p>Суровый мир вечной мерзлоты, геополитических интриг и неустанной борьбы за выживание. Возглавь свое государство, прими вызов ледяной стихии и впиши свое имя в историю этого замерзающего мира.</p>
-            <a href="https://discord.gg/winterworld" target="_blank" class="btn-discord">❄️ Начать играть</a>
-        </div>
-    </section>
-
-    <section class="stats-section" id="stats">
-        <div class="stat-card">
-            <div class="stat-number">225+</div>
-            <div class="stat-label">Активных Игроков</div>
-            <div class="stat-sub">Формируют историю государств прямо сейчас</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-number">22 lvl</div>
-            <div class="stat-label">Буста Сервера</div>
-            <div class="stat-sub">Максимальное качество звука и кастомные эмодзи</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-number">WW Bot</div>
-            <div class="stat-label">Собственный Бот</div>
-            <div class="stat-sub">Уникальная автоматизация ходов, экономики и ВПИ-механик</div>
+            box-shadow: inset 0 0 20px rgba(56, 189, 248, 0.02), 0 10px 30px rgba(0,0,0,0.5
